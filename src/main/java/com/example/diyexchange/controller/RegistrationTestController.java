@@ -1,5 +1,7 @@
-package com.example.diyexchange;
+package com.example.diyexchange.controller;
 
+import com.example.diyexchange.entity.User;
+import com.example.diyexchange.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.example.diyexchange;
+package com.example.diyexchange.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

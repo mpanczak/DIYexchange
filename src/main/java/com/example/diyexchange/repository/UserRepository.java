@@ -1,5 +1,6 @@
-package com.example.diyexchange;
+package com.example.diyexchange.repository;
 
+import com.example.diyexchange.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,5 +1,7 @@
-package com.example.diyexchange;
+package com.example.diyexchange.service;
 
+import com.example.diyexchange.entity.User;
+import com.example.diyexchange.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
