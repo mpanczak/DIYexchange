@@ -1,21 +1,19 @@
 package com.example.diyexchange.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Data
-@Table(name = "users")
-public class User {
+@Table(name = "pictures")
+public class Picture {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String login;
+    private String name;
 
-    private String email;
+    private String type;
 
-    private String password;
-
+    @Lob
+    private byte[] data;
 }
