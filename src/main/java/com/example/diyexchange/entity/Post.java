@@ -16,14 +16,16 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User author;
 
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String content;
 
     @ManyToMany
     private List<Picture> pictures;
 
-    @OneToMany
+    @OneToMany(mappedBy = "post")
     private List<Reaction> reactions;
 
-    @OneToMany
+    @OneToMany(mappedBy = "post")
     private List<Comment> comments;
 }
