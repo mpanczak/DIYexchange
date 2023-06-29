@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+<h2>User Registration</h2>
+
+<form action="#" th:action="@{/register}" th:object="${user}" method="post">
+    <div>
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" required />
+    </div>
+
+    <div>
+        <label>Login:</label>
+        <input type="text" th:field="*{login}" required />
+    </div>
+
+    <div>
+        <label>Password:</label>
+        <input type="password" th:field="*{password}" required />
+    </div>
+
+    <div>
+        <input type="submit" value="Register" />
+    </div>
+</form>
+
+<!-- Display error message if user already exists -->
+<p th:if="${param.error}">User with this email already exists!</p>
+</body>
+</html>
