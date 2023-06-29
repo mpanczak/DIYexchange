@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,15 +22,23 @@ public class User {
 
     private String password;
 
-//    @ManyToMany(mappedBy = "users")
-//    private Follow watchlist;
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
+
+    @ManyToMany(mappedBy = "likedByUsers")
+    private List<Post> likedPosts;
+
+//    @ManyToMany(fetch = FetchType.EAGER)
 //    @JoinTable(
 //            name = "user_role",
 //            joinColumns = {@JoinColumn(name = "user_id")},
 //            inverseJoinColumns = {@JoinColumn(name = "role_id")})
-    private Set<Role> roles;
+//    private Set<Role> roles;
+    @ManyToMany(mappedBy = "users")
+    private List<Role> roles;
 
     @ManyToMany
     @JoinTable(name = "user_follows",

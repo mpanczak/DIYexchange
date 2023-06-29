@@ -1,11 +1,13 @@
 package com.example.diyexchange.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "comments")
+@Data
 public class Comment {
 
     @Id

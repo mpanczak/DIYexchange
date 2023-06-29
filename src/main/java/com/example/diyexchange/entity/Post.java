@@ -1,11 +1,13 @@
 package com.example.diyexchange.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
 @Entity
 @Table(name = "posts")
+@Data
 public class Post {
 
     @Id
@@ -13,18 +15,18 @@ public class Post {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User author;
+//    @JoinColumn(name = "user_id")
+    private User user;
 
     @Lob
     @Column(columnDefinition = "TEXT")
     private String content;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "post")
     private List<Picture> pictures;
 
-    @OneToMany(mappedBy = "post")
-    private List<Reaction> reactions;
+    @ManyToMany
+    private List<User> likedByUsers;
 
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;

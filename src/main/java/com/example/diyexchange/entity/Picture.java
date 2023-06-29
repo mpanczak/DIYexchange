@@ -22,4 +22,8 @@ public class Picture {
     @Column(columnDefinition = "BLOB")
 //    private byte[] data;
     private byte[] imageData;
+
+    @ManyToOne
+    private Post post;
+
 }
