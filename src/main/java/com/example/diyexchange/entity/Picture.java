@@ -19,7 +19,7 @@ public class Picture {
 //    private String type;
 
     @Lob
-    @Column(columnDefinition = "BLOB")
+    @Column(columnDefinition = "MEDIUMBLOB")
 //    private byte[] data;
     private byte[] imageData;
 
