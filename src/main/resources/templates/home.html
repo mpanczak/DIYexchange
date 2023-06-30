@@ -7,5 +7,11 @@
 <h1>Welcome!</h1>
 
 <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+<h1>Posts</h1>
+
+<div th:each="post : ${posts}">
+    <h2 th:text="${post.title}"></h2>
+    <img th:src="@{'/posts/image/' + ${post.id}}" alt="Post Image" />
+</div>
 </body>
 </html>
