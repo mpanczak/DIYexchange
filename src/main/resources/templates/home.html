@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home page</title>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
 </head>
 <body>
+<!--header-->
+<div th:replace="~{fragments/header.html :: body}"></div>
 
+<!--body-->
 <h2>Latest Posts</h2>
 
 <div th:each="post : ${posts}">
     <h2 th:text="${post.title}"></h2>
     <img th:src="@{'/pictures/' + ${post.id}}" alt="Post Image" />
 </div>
+
+<!--footer-->
+<div th:replace="~{fragments/footer.html :: body}"></div>
 </body>
 </html>

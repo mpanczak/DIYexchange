@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+<!--    <link th:href="@{/css/style.css}" rel="stylesheet" />-->
+<!--    <link rel="stylesheet" th:href="@{/css/styles.css}" />-->
+    <link th:href="@{../static/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+<!--            <img th:src="@{/images/logo.png}" alt="Firm Logo" />-->
+            <img th:src="@{/pictures/1}" alt="Firm Logo" />
+            <h1>My Firm Name</h1>
+        </div>
+        <ul>
+            <li><a th:href="@{/home}">Home</a></li>
+<!--            <li><a th:href="@{/about}">About</a></li>-->
+<!--            <li><a th:href="@{/log in}">Contact</a></li>-->
+<!--            <li><a th:href="@{/sign in}">Contact</a></li>-->
+        </ul>
+        <div class="user-profile">
+<!--            <img th:src="@{/user/profile-picture.png}" alt="Profile Picture" />-->
+            <img th:src="@{/pictures/1}" alt="Profile Picture" />
+<!--            <span th:text="${user.name}">John Doe</span>-->
+        </div>
+    </nav>
+</header>
+</body>
+</html>
+
