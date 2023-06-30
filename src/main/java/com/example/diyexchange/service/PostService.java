@@ -19,6 +19,12 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
+
+    public Post retrievePostById(Long id) {
+        Post post = postRepository.findById(id).get();
+        return post;
+    }
+
     public List<Post> retrivePosts() {
         List<Post> posts = postRepository.findAll();
         return posts;

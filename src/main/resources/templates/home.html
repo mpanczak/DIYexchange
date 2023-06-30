@@ -12,7 +12,12 @@
 <h2>Latest Posts</h2>
 
 <div th:each="post : ${posts}">
-    <h2 th:text="${post.title}"></h2>
+<!--    <h2 th:text="${post.title}"></h2>-->
+    <h2>
+        <a th:href="@{'/post/' + ${post.id}}">
+            <span th:text="${post.title}"></span>
+        </a>
+    </h2>
     <img th:src="@{'/pictures/' + ${post.id}}" alt="Post Image" />
 </div>
 
