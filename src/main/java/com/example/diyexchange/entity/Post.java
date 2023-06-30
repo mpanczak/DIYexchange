@@ -22,6 +22,8 @@ public class Post {
     @Column(columnDefinition = "TEXT")
     private String content;
 
+    private String title;
+
     @OneToMany(mappedBy = "post")
     private List<Picture> pictures;
 
