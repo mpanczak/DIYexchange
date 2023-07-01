@@ -17,30 +17,18 @@
 <h2>Comments:</h2>
 <div th:if="${post.comments != null && post.comments.size() > 0}">
     <div th:each="comment : ${post.comments}">
-        <p th:text="${comment.text}"></p>
-        <p>Posted by: <span th:text="${comment.user.username}"></span></p>
+        <p th:text="${comment.content}"></p>
+        <p>Posted by: <span th:text="${comment.user.login}"></span></p>
     </div>
 </div>
 
 <h2>Liked By:</h2>
 <div th:if="${post.likedByUsers != null && post.likedByUsers.size() > 0}">
     <ul>
-        <li th:each="user : ${post.likedByUsers}" th:text="${user.username}"></li>
+        <li th:each="user : ${post.likedByUsers}" th:text="${user.login}"></li>
     </ul>
 </div>
 
 <!-- Add any other desired sections or details here -->
 </body>
 </html>
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title th:text="${post.title}">Post</title>-->
-<!--</head>-->
-<!--<body>-->
-
-<!--</body>-->
-<!--</html>-->
