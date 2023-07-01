@@ -5,7 +5,6 @@
 </head>
 <body>
 <h1 th:text="${post.title}"></h1>
-<p th:text="${post.content}"></p>
 
 <h2>Pictures:</h2>
 <div th:if="${post.pictures != null && post.pictures.size() > 0}">
@@ -14,13 +13,16 @@
     </div>
 </div>
 
-<h2>Comments:</h2>
-<div th:if="${post.comments != null && post.comments.size() > 0}">
-    <div th:each="comment : ${post.comments}">
-        <p th:text="${comment.content}"></p>
-        <p>Posted by: <span th:text="${comment.user.login}"></span></p>
-    </div>
-</div>
+<p th:text="${post.content}"></p>
+
+<!-- Like button -->
+<form th:action="@{'/post/' + ${post.id} + '/like'}" method="post">
+    <button type="submit">Like</button>
+</form>
+
+<!-- like count -->
+<!--<p>Like count: <span th:text="${post.likeCount}"></span></p>-->
+<p>Like count: <span>10</span></p>
 
 <h2>Liked By:</h2>
 <div th:if="${post.likedByUsers != null && post.likedByUsers.size() > 0}">
@@ -29,6 +31,19 @@
     </ul>
 </div>
 
-<!-- Add any other desired sections or details here -->
+<h2>Comments:</h2>
+<div th:if="${post.comments != null && post.comments.size() > 0}">
+    <div th:each="comment : ${post.comments}">
+        <p th:text="${comment.content}"></p>
+        <p>Posted by: <span th:text="${comment.user.login}"></span></p>
+        <p th:text="${comment.timestamp}"></p>
+    </div>
+</div>
+
+<form th:action="@{'/post/' + ${post.id} + '/addComment'}" method="post">
+    <textarea name="commentText"></textarea>
+    <button type="submit">Add Comment</button>
+</form>
+
 </body>
 </html>
