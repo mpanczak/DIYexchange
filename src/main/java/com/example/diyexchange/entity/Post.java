@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "posts")
@@ -28,7 +29,7 @@ public class Post {
     private List<Picture> pictures;
 
     @ManyToMany
-    private List<User> likedByUsers;
+    private Set<User> likedByUsers;
 
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;

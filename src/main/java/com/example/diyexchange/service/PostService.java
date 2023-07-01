@@ -3,11 +3,13 @@ package com.example.diyexchange.service;
 import com.example.diyexchange.entity.Comment;
 import com.example.diyexchange.entity.Picture;
 import com.example.diyexchange.entity.Post;
+import com.example.diyexchange.entity.User;
 import com.example.diyexchange.repository.PostRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -15,10 +17,12 @@ public class PostService {
 
     private final PostRepository postRepository;
     private final CommentService commentService;
+    private final UserService userService;
 
-    public PostService(PostRepository postRepository, CommentService commentService) {
+    public PostService(PostRepository postRepository, CommentService commentService, UserService userService) {
         this.postRepository = postRepository;
         this.commentService = commentService;
+        this.userService = userService;
     }
 
 
@@ -39,6 +43,15 @@ public class PostService {
 
         commentService.addComment(comment);
     }
+
+    public void likePost(Long postId) {
+        Post post = retrievePostById(postId);
+        Set<User> likes = post.getLikedByUsers();
+        likes.add(userService.retrieveLoggedUser());
+        post.setLikedByUsers(likes);
+        postRepository.save(post);
+    }
+
     public void addPost(Post post) {
         //TODO
         // Set necessary fields such as createdAt, updatedAt, etc.

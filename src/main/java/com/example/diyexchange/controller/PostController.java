@@ -35,6 +35,13 @@ public class PostController {
         return "redirect:/post/{id}";
     }
 
+
+    @PostMapping("/post/{id}/like")
+    public String like(@PathVariable Long id) {
+        postService.likePost(id);
+        return "redirect:/post/{id}";
+    }
+
 //    @GetMapping("/posts/new")
 //    public String showPostForm(Model model) {
 //        model.addAttribute("post", new Post());
