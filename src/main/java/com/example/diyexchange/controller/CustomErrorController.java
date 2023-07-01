@@ -20,6 +20,8 @@ public class CustomErrorController implements ErrorController {
             int statusCode = Integer.parseInt(status.toString());
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
                 errorMessage = "404 Page Not Found";
+            } else if (statusCode == HttpStatus.FORBIDDEN.value()) {
+                errorMessage = "403 Forbidden";
             } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
                 errorMessage = "500 Internal Server Error";
             } else {
