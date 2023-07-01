@@ -8,10 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -26,13 +23,17 @@ public class PostController {
         this.userRepository = userRepository;
     }
 
-
     @GetMapping("/post/{id}")
     public String showPost(@PathVariable Long id, Model model) {
         model.addAttribute(postService.retrievePostById(id));
         return "post";
     }
 
+    @PostMapping("/post/{id}/addComment")
+    public String addComment(@RequestParam String commentText, @PathVariable Long id) {
+        postService.addComment(commentText, id);
+        return "redirect:/post/{id}";
+    }
 
 //    @GetMapping("/posts/new")
 //    public String showPostForm(Model model) {

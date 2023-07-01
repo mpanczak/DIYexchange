@@ -1,12 +1,12 @@
 package com.example.diyexchange.service;
 
+import com.example.diyexchange.entity.Comment;
 import com.example.diyexchange.entity.Picture;
 import com.example.diyexchange.entity.Post;
 import com.example.diyexchange.repository.PostRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,23 +14,31 @@ import java.util.List;
 public class PostService {
 
     private final PostRepository postRepository;
+    private final CommentService commentService;
 
-    public PostService(PostRepository postRepository) {
+    public PostService(PostRepository postRepository, CommentService commentService) {
         this.postRepository = postRepository;
+        this.commentService = commentService;
     }
 
 
     public Post retrievePostById(Long id) {
-        Post post = postRepository.findById(id).get();
-        return post;
+        return postRepository.findById(id).get();
     }
 
     public List<Post> retrivePosts() {
-        List<Post> posts = postRepository.findAll();
-        return posts;
+        return postRepository.findAll();
     }
 
+    public void addComment(String content, Long postId) {
+        Post post = retrievePostById(postId);
 
+        Comment comment = new Comment();
+        comment.setContent(content);
+        comment.setPost(post);
+
+        commentService.addComment(comment);
+    }
     public void addPost(Post post) {
         //TODO
         // Set necessary fields such as createdAt, updatedAt, etc.
