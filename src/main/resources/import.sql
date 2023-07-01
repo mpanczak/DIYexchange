@@ -20,8 +20,13 @@ INSERT INTO posts (id, user_id, title, content) VALUES (5, 5, 'Generator impuls�
 
 
 INSERT INTO comments (id, post_id, timestamp, user_id, content) VALUES (1, 1, CURRENT_TIMESTAMP, 2, 'Super projekt!');
+INSERT INTO comments (id, post_id, timestamp, user_id, content) VALUES (2, 4, CURRENT_TIMESTAMP, 1, 'Słabe to było');
+INSERT INTO comments (id, post_id, timestamp, user_id, content) VALUES (3, 4, CURRENT_TIMESTAMP, 2, 'Nieźle nieźle');
+INSERT INTO comments (id, post_id, timestamp, user_id, content) VALUES (4, 4, CURRENT_TIMESTAMP, 3, 'Dosasz listę elementów, których użyłeś?');
+INSERT INTO comments (id, post_id, timestamp, user_id, content) VALUES (5, 2, CURRENT_TIMESTAMP, 4, 'Robiłem kiedyś coś podobnego i ..');
+INSERT INTO comments (id, post_id, timestamp, user_id, content) VALUES (6, 1, CURRENT_TIMESTAMP, 3, 'Na rynku jest problem z elementami tego typu.');
 
-INSERT INTO posts_liked_by_users (liked_by_users_id, liked_posts_id) VALUES (2, 1);
+INSERT INTO posts_liked_by_users (liked_by_users_id, liked_posts_id) VALUES (2, 1), (1, 3), (3, 2), (4, 2), (4, 1), (1, 4);
 
 INSERT INTO user_follows (followed_id, follower_id) VALUES (2, 1), (2, 3), (2, 5);
 INSERT INTO user_follows (followed_id, follower_id) VALUES (5, 4), (5, 1), (5, 3);
