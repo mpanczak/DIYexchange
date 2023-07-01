@@ -15,7 +15,8 @@ public class SecSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home", "/test", "/register").permitAll()
+//                        .requestMatchers("/", "/home", "/test", "/register", "/pictures/*").permitAll()
+                        .requestMatchers("/**").permitAll()
 //                        .requestMatchers("/admin").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
@@ -23,7 +24,10 @@ public class SecSecurityConfig {
                         .loginPage("/login")
                         .permitAll()
                 )
-                .logout((logout) -> logout.logoutUrl("/logout").permitAll());
+                .logout((logout) -> logout.logoutUrl("/logout")
+//                .logoutSuccessUrl("/login?logout") // Redirect URL after successful logout
+                .permitAll()
+        );
 
         return http.build();
     }
