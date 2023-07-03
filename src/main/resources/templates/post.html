@@ -16,7 +16,7 @@
 <p th:text="${post.content}"></p>
 
 <!-- Like button -->
-<form th:action="@{'/post/' + ${post.id} + '/like'}" method="post">
+<form th:action="@{'/posts/' + ${post.id} + '/like'}" method="post">
     <button type="submit">Like</button>
 </form>
 
@@ -40,7 +40,7 @@
     </div>
 </div>
 
-<form th:action="@{'/post/' + ${post.id} + '/addComment'}" method="post">
+<form th:action="@{'/posts/' + ${post.id} + '/addComment'}" method="post">
     <textarea name="commentText"></textarea>
     <button type="submit">Add Comment</button>
 </form>

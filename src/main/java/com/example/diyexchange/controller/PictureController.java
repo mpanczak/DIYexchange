@@ -1,9 +1,8 @@
 package com.example.diyexchange.controller;
 
+import com.example.diyexchange.entity.Picture;
 import com.example.diyexchange.service.PictureService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -51,7 +50,12 @@ public class PictureController {
     @PostMapping("/upload")
     public String uploadPicture(@RequestParam("file") MultipartFile file) {
         try {
-            pictureService.savePicture(file);
+            Picture picture = new Picture();
+            picture.setName(file.getOriginalFilename());
+            picture.setImageData(file.getBytes());
+            pictureService.savePicture(picture);
+
+//            pictureService.savePicture(file);
 //            return "redirect:/upload-success"; // TODO Redirect to a success page after successful upload
             return "redirect:/pictures/upload";
         } catch (IOException e) {

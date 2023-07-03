@@ -17,10 +17,11 @@ public class PictureService {
         this.pictureRepository = pictureRepository;
     }
 
-    public void savePicture(MultipartFile file) throws IOException {
-        Picture picture = new Picture();
-        picture.setName(file.getOriginalFilename());
-        picture.setImageData(file.getBytes());
+    public void savePicture(Picture picture) {
+//    public void savePicture(MultipartFile file) throws IOException {
+//        Picture picture = new Picture();
+//        picture.setName(file.getOriginalFilename());
+//        picture.setImageData(file.getBytes());
         pictureRepository.save(picture);
     }
 

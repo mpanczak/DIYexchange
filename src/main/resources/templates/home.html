@@ -6,7 +6,7 @@
 </head>
 <body>
 <!--header-->
-<div th:replace="~{fragments/header.html :: body}"></div>
+<!--<div th:replace="~{fragments/header.html :: body}"></div>-->
 
 <!--body-->
 <h2>Latest Posts</h2>
@@ -14,7 +14,7 @@
 <div th:each="post : ${posts}">
 <!--    <h2 th:text="${post.title}"></h2>-->
     <h2>
-        <a th:href="@{'/post/' + ${post.id}}">
+        <a th:href="@{'/posts/' + ${post.id}}">
             <span th:text="${post.title}"></span>
         </a>
     </h2>
