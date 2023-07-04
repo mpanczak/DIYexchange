@@ -1,5 +1,6 @@
 package com.example.diyexchange.config;
 
+import jakarta.servlet.DispatcherType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,24 +11,25 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class SecSecurityConfig {
+public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+        http.authorizeHttpRequests((authorize) -> authorize
+                        .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
+        );
         http
                 .authorizeHttpRequests((requests) -> requests
-//                        .requestMatchers("/", "/home", "/test", "/register", "/pictures/*").permitAll()
-                        .requestMatchers("/**").permitAll()
-//                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/", "/home", "/test", "/register", "/pictures/*").permitAll()
+//                        .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
                         .loginPage("/login")
                         .permitAll()
                 )
-                .logout((logout) -> logout.logoutUrl("/logout")
-//                .logoutSuccessUrl("/login?logout") // Redirect URL after successful logout
-                .permitAll()
-        );
+                .logout((logout) -> logout.logoutUrl("/logout").logoutSuccessUrl("/login")
+                        .invalidateHttpSession(true).deleteCookies("JSESSIONID").permitAll());
 
         return http.build();
     }
@@ -37,4 +39,3 @@ public class SecSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
