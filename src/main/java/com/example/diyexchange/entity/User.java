@@ -44,8 +44,24 @@ public class User {
     @JoinTable(name = "user_follows",
             joinColumns = @JoinColumn(name = "follower_id"),
             inverseJoinColumns = @JoinColumn(name = "followed_id"))
-    private Set<User> follows = new HashSet<>();
+
+    private Set<User> follows;
 
     @ManyToMany(mappedBy = "follows")
-    private Set<User> followers = new HashSet<>();
+    private Set<User> followers;
+
+
+    public Set<User> getFollows() {
+        if (follows == null) {
+            follows = new HashSet<>();
+        }
+        return follows;
+    }
+
+    public Set<User> getFollowers() {
+        if (followers == null) {
+            followers = new HashSet<>();
+        }
+        return followers;
+    }
 }

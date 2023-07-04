@@ -1,7 +1,7 @@
 INSERT INTO users (id, email, login, password) VALUES (1, 'johndoe@gmail.com', 'johndoe', '$2a$10$b5qjI/WewW1JLZEPEqzx5uYkQRz7tMuVmkQzyOVenYO57nQk.Me1m'); # secret
-INSERT INTO users (id, email, login, password) VALUES (2, 'mpanczak@gmail.com', 'mpanczak', '$2a$10$Dd3N5h3l4L9Afs9BOlPZweJplotTwc5VMUWUis1rJvfEJpKEOFcX.'); # changeit
-INSERT INTO users (id, email, login, password) VALUES (3, 'tommy@gmail.com', 'tommy', '$2a$10$Dd3N5h3l4L9Afs9BOlPZweJplotTwc5VMUWUis1rJvfEJpKEOFcX.'); # changeit
-INSERT INTO users (id, email, login, password) VALUES (4, 'luke@o2.com', 'luke', '$2a$10$Dd3N5h3l4L9Afs9BOlPZweJplotTwc5VMUWUis1rJvfEJpKEOFcX.'); # changeit
+INSERT INTO users (id, email, login, password) VALUES (2, 'qezepame@socam.me', 'mpanczak', '$2a$10$Dd3N5h3l4L9Afs9BOlPZweJplotTwc5VMUWUis1rJvfEJpKEOFcX.'); # changeit
+INSERT INTO users (id, email, login, password) VALUES (3, 'zostididra@gufum.com', 'tommy', '$2a$10$Dd3N5h3l4L9Afs9BOlPZweJplotTwc5VMUWUis1rJvfEJpKEOFcX.'); # changeit
+INSERT INTO users (id, email, login, password) VALUES (4, 'oiueisaterbkgn@exelica.com', 'luke', '$2a$10$Dd3N5h3l4L9Afs9BOlPZweJplotTwc5VMUWUis1rJvfEJpKEOFcX.'); # changeit
 INSERT INTO users (id, email, login, password) VALUES (5, 'jack@yahoo.com', 'jack', '$2a$10$Dd3N5h3l4L9Afs9BOlPZweJplotTwc5VMUWUis1rJvfEJpKEOFcX.'); # changeit
 
 INSERT INTO roles (id, name) VALUES (1, 'user'), (2, 'admin');
@@ -28,6 +28,7 @@ INSERT INTO comments (id, post_id, timestamp, user_id, content) VALUES (6, 1, CU
 
 INSERT INTO posts_liked_by_users (liked_by_users_id, liked_posts_id) VALUES (2, 1), (1, 3), (3, 2), (4, 2), (4, 1), (1, 4);
 
+INSERT INTO user_follows (followed_id, follower_id) VALUES (1, 2), (1, 3), (1, 4);
 INSERT INTO user_follows (followed_id, follower_id) VALUES (2, 1), (2, 3), (2, 5);
 INSERT INTO user_follows (followed_id, follower_id) VALUES (5, 4), (5, 1), (5, 3);
 

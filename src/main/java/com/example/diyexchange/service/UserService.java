@@ -23,4 +23,9 @@ public class UserService {
 //        Optional<User> user = userRepository.findById(Long.valueOf(authentication.getName()));
         return userRepository.findById(1L).get(); //TODO user is hardcoded now
     }
+
+    public List<String> fetchEmails(Long id) {
+        return userRepository.findFollowersEmails(id);
+    }
+
 }

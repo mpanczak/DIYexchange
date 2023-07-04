@@ -21,12 +21,14 @@ public class PostService {
     private final CommentService commentService;
     private final UserService userService;
     private final PictureService pictureService;
+    private final NotificationService notificationService;
 
-    public PostService(PostRepository postRepository, CommentService commentService, UserService userService, PictureService pictureService) {
+    public PostService(PostRepository postRepository, CommentService commentService, UserService userService, PictureService pictureService, NotificationService notificationService) {
         this.postRepository = postRepository;
         this.commentService = commentService;
         this.userService = userService;
         this.pictureService = pictureService;
+        this.notificationService = notificationService;
     }
 
 
@@ -73,5 +75,7 @@ public class PostService {
         }
         post.setUser(userService.retrieveLoggedUser());
         postRepository.save(post);
+
+        notificationService.sendNotifications(post);
     }
 }
