@@ -4,10 +4,14 @@ import com.example.diyexchange.entity.User;
 import com.example.diyexchange.repository.UserRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -19,9 +23,16 @@ public class UserService {
     }
 
     public User retrieveLoggedUser() {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        Optional<User> user = userRepository.findById(Long.valueOf(authentication.getName()));
-        return userRepository.findById(1L).get(); //TODO user is hardcoded now
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String username = userDetails.getUsername();
+
+            Optional<User> user = userRepository.findByLogin(username);
+            return user.get();
+//        }
+//        return null;
     }
 
     public List<String> fetchEmails(Long id) {
