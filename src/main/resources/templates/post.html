@@ -21,8 +21,7 @@
 </form>
 
 <!-- like count -->
-<!--<p>Like count: <span th:text="${post.likeCount}"></span></p>-->
-<p>Like count: <span>10</span></p>
+<p>Like count: <span th:text="${post.likedByUsers.size()}"></span></p>
 
 <h2>Liked By:</h2>
 <div th:if="${post.likedByUsers != null && post.likedByUsers.size() > 0}">

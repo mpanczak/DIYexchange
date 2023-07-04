@@ -6,7 +6,7 @@
 </head>
 <body>
 <!--header-->
-<!--<div th:replace="~{fragments/header.html :: body}"></div>-->
+<div th:replace="~{fragments/header.html :: body}"></div>
 
 <!--body-->
 <h2>Latest Posts</h2>
@@ -18,7 +18,11 @@
             <span th:text="${post.title}"></span>
         </a>
     </h2>
-    <img th:src="@{'/pictures/' + ${post.id}}" alt="Post Image" />
+<!--    <img th:src="@{'/pictures/' + ${post.id}}" alt="Post Image" />-->
+    <img th:src="@{'/pictures/' + ${post.pictures.get(0).getId()}}" alt="Post Image" />
+
+
+    <p>Like count: <span th:text="${post.likedByUsers.size()}"></span></p>
 </div>
 
 <!--footer-->
