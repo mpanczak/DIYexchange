@@ -28,8 +28,11 @@ public class SecurityConfiguration {
                         .loginPage("/login")
                         .permitAll()
                 )
-                .logout((logout) -> logout.logoutUrl("/logout").logoutSuccessUrl("/login")
-                        .invalidateHttpSession(true).deleteCookies("JSESSIONID").permitAll());
+                .logout((logout) -> logout.logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .permitAll());
 
         return http.build();
     }

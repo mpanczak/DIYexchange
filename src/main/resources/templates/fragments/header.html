@@ -26,6 +26,11 @@
             <img th:src="@{/pictures/5}" alt="Profile Picture" />
 <!--            <span th:text="${user.name}">John Doe</span>-->
         </div>
+
+        <form th:action="@{/logout}" method="post">
+            <div><input type="submit" value="Logout"/></div>
+        </form>
+
     </nav>
 </header>
 </body>
