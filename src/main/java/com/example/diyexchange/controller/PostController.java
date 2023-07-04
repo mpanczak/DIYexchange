@@ -53,17 +53,8 @@ public class PostController {
     }
 
     @PostMapping("/posts/new")
-    public String addPost(@ModelAttribute("post") Post post, @RequestParam("picture") MultipartFile file, Model model) {
-
-        Picture picture = new Picture();
-        picture.setName(file.getOriginalFilename());
-        try {
-            picture.setImageData(file.getBytes());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        pictureService.savePicture(picture);
-
+    public String addPost(@ModelAttribute("post") Post post, @RequestParam("image") MultipartFile image) {
+        postService.savePost(post, image);
         return "redirect:/";
     }
 }

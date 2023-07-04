@@ -3,6 +3,7 @@ package com.example.diyexchange.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -25,7 +26,7 @@ public class Post {
 
     private String title;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Picture> pictures;
 
     @ManyToMany
@@ -33,4 +34,11 @@ public class Post {
 
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;
+
+    public List<Picture> getPictures() {
+        if (pictures == null) {
+            pictures = new ArrayList<>();
+        }
+        return pictures;
+    }
 }
