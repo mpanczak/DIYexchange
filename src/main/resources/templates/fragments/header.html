@@ -6,6 +6,7 @@
 </head>
 <body>
 <link th:href="@{/css/header-bootstrap.css}" rel="stylesheet">
+<link th:href="@{/css/post-bootstrap.css}" rel="stylesheet">
 <link th:href="@{/css/style.css}" rel="stylesheet">
 <div class="container">
 
@@ -35,28 +36,11 @@
         </ul>
 
         <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2">Login</button>
+            <button type="button" class="btn btn-outline-primary me-2"><a th:href="@{/login}">Login</a></button>
             <button type="button" class="btn btn-primary">Sign-up</button>
         </div>
     </header>
 </div>
-
-
-<!--<header>-->
-<!--    <nav>-->
-<!--        <div class="user-profile">-->
-<!--&lt;!&ndash;            <img th:src="@{/user/profile-picture.png}" alt="Profile Picture" />&ndash;&gt;-->
-<!--            <img th:src="@{/pictures/5}" alt="Profile Picture" />-->
-<!--&lt;!&ndash;            <span th:text="${user.name}">John Doe</span>&ndash;&gt;-->
-<!--        </div>-->
-<!--        <br><br>-->
-<!--        <form th:action="@{/sendmail}" method="get" >-->
-<!--            <div><input type="submit" value="Send" class="ui-button"/></div>-->
-<!--        </form>-->
-<!--        <br><br>-->
-<!--        <button type="button" th:onclick="showAlert()">Show Alert</button>-->
-<!--    </nav>-->
-<!--</header>-->
 
 <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" />
 <link rel="stylesheet" th:href="@{/css/header-bootstrap.css}" type="text/css" />

@@ -7,24 +7,34 @@
 <body>
 <!--header-->
 <div th:replace="~{fragments/header.html :: body}"></div>
-<!--<div th:replace="~{fragments/styled_header.html :: body}"></div>-->
 
 <!--body-->
-<h2>Latest Posts</h2>
+<div class="container">
+    <h2>Latest Posts</h2>
 
-<div class="post" th:each="post : ${posts}">
-    <h2>
-        <a th:href="@{'/posts/' + ${post.id}}">
-            <span th:text="${post.title}"></span>
-        </a>
-    </h2>
-<!--    <img th:src="@{'/pictures/' + ${post.id}}" alt="Post Image" />-->
-    <img th:src="@{'/pictures/' + ${post.pictures.get(0).getId()}}" alt="Post Image" />
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="post" th:each="post : ${posts}">
 
-    <p>Like count: <span th:text="${post.likedByUsers.size()}"></span></p>
+            <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0">
+                    <a th:href="@{'/posts/' + ${post.id}}">
+                        <span th:text="${post.title}"></span>
+                    </a>
+                </h3>
+                <p>Like count: <span th:text="${post.likedByUsers.size()}"></span></p>
+            </div>
+
+            <div class="col-auto d-none d-lg-block">
+                <img th:src="@{'/pictures/' + ${post.pictures.get(0).getId()}}" alt="Post Image" />
+            </div>
+        </div>
+
+        <!--footer-->
+        <div th:replace="~{fragments/footer.html :: body}"></div>
+    </div>
+
 </div>
 
-<!--footer-->
-<div th:replace="~{fragments/footer.html :: body}"></div>
+
 </body>
 </html>
