@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+<!--header-->
+<div th:replace="~{fragments/header.html :: body}"></div>
+
+<div class="container">
+    <section>
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id ante id lectus feugiat viverra. Nulla facilisi. Sed vel tellus at enim euismod finibus nec sit amet turpis.</p>
+    </section>
+
+    <section>
+        <h2>Our Services</h2>
+        <ul>
+            <li>Service 1</li>
+            <li>Service 2</li>
+            <li>Service 3</li>
+        </ul>
+    </section>
+</div>
+
+<!--footer-->
+<div th:replace="~{fragments/footer.html :: body}"></div>
+
+</body>
+</html>
