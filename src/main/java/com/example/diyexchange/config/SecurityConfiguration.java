@@ -20,8 +20,8 @@ public class SecurityConfiguration {
         );
         http
                 .authorizeHttpRequests((requests) -> requests
-//                        .requestMatchers("/", "/home", "/test", "/register", "/pictures/*").permitAll()
-                        .requestMatchers("/**", "/**/*.{js,css}").permitAll()
+                        .requestMatchers("/", "/home", "/register", "/pictures/*", "/*/*.{js}", "/*/*.{css}").permitAll()
+//                        .requestMatchers("/**", "/*/*.{js,css}").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
