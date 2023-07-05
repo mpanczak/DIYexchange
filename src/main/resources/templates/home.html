@@ -13,7 +13,6 @@
 <h2>Latest Posts</h2>
 
 <div class="post" th:each="post : ${posts}">
-<!--    <h2 th:text="${post.title}"></h2>-->
     <h2>
         <a th:href="@{'/posts/' + ${post.id}}">
             <span th:text="${post.title}"></span>
@@ -21,7 +20,6 @@
     </h2>
 <!--    <img th:src="@{'/pictures/' + ${post.id}}" alt="Post Image" />-->
     <img th:src="@{'/pictures/' + ${post.pictures.get(0).getId()}}" alt="Post Image" />
-
 
     <p>Like count: <span th:text="${post.likedByUsers.size()}"></span></p>
 </div>

@@ -3,40 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>My Website</title>
-<!--    <link th:href="@{/css/style.css}" rel="stylesheet" />-->
-<!--    <link rel="stylesheet" th:href="@{/css/styles.css}" />-->
-    <link th:href="@{../static/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-<header>
-    <nav>
+<link th:href="@{/css/header-bootstrap.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<div class="container">
+
+
+
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
         <div class="logo">
-<!--            <img th:src="@{/images/logo.png}" alt="Firm Logo" />-->
-            <img th:src="@{/pictures/5}" alt="Firm Logo" />
-            <h1>My Firm Name</h1>
+            <img th:src="@{/img/logo.png}" alt="Firm Logo" />
+            <!--                <img th:src="@{/pictures/11}" alt="Firm Logo" />-->
+            <h1>DIY exchange</h1>
         </div>
-        <ul>
-            <li><a th:href="@{/home}">Home</a></li>
-<!--            <li><a th:href="@{/about}">About</a></li>-->
-<!--            <li><a th:href="@{/log in}">Contact</a></li>-->
-<!--            <li><a th:href="@{/sign in}">Contact</a></li>-->
+
+        <div class="col-md-3 mb-2 mb-md-0">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+            </a>
+        </div>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a th:href="@{/home}" class="nav-link px-2">Home</a></li>
+            <li><a th:href="@{/profile}" class="nav-link px-2">Profile</a></li>
+            <li><a th:href="@{/my_posts}" class="nav-link px-2">My Posts</a></li>
+            <li><a th:href="@{/settings}" class="nav-link px-2">Settings</a></li>
+            <li><a th:href="@{/about}" class="nav-link px-2">About</a></li>
+            <li><a th:href="@{/contact}" class="nav-link px-2">Contact</a></li>
         </ul>
-        <div class="user-profile">
-<!--            <img th:src="@{/user/profile-picture.png}" alt="Profile Picture" />-->
-            <img th:src="@{/pictures/5}" alt="Profile Picture" />
-<!--            <span th:text="${user.name}">John Doe</span>-->
+
+        <div class="col-md-3 text-end">
+            <button type="button" class="btn btn-outline-primary me-2">Login</button>
+            <button type="button" class="btn btn-primary">Sign-up</button>
         </div>
+    </header>
+</div>
 
-        <form th:action="@{/logout}" method="post">
-            <div><input type="submit" value="Logout"/></div>
-        </form>
 
-    </nav>
-</header>
-
+<!--<header>-->
+<!--    <nav>-->
+<!--        <div class="user-profile">-->
+<!--&lt;!&ndash;            <img th:src="@{/user/profile-picture.png}" alt="Profile Picture" />&ndash;&gt;-->
+<!--            <img th:src="@{/pictures/5}" alt="Profile Picture" />-->
+<!--&lt;!&ndash;            <span th:text="${user.name}">John Doe</span>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <br><br>-->
+<!--        <form th:action="@{/sendmail}" method="get" >-->
+<!--            <div><input type="submit" value="Send" class="ui-button"/></div>-->
+<!--        </form>-->
+<!--        <br><br>-->
+<!--        <button type="button" th:onclick="showAlert()">Show Alert</button>-->
+<!--    </nav>-->
+<!--</header>-->
 
 <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" />
-<link rel="stylesheet" th:href="@{/css/main.css}" type="text/css" />
+<link rel="stylesheet" th:href="@{/css/header-bootstrap.css}" type="text/css" />
 
 <script type="text/javascript" th:src="@{/js/actions.js}"></script>
 
