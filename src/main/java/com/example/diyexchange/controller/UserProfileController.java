@@ -5,10 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class SettingsController {
+public class UserProfileController {
 
-    @GetMapping("/settings")
+    @GetMapping("/profile")
     public String home(Model model) {
-        return "settings";
+        return "profile";
     }
 }
