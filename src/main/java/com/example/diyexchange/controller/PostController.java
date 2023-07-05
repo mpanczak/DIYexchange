@@ -1,6 +1,5 @@
 package com.example.diyexchange.controller;
 
-import com.example.diyexchange.entity.Picture;
 import com.example.diyexchange.entity.Post;
 import com.example.diyexchange.service.PictureService;
 import com.example.diyexchange.service.PostService;
@@ -9,10 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class PostController {
@@ -49,7 +44,7 @@ public class PostController {
     @GetMapping("/posts/new")
     public String showPostForm(Model model) {
         model.addAttribute("post", new Post());
-        return "postForm";
+        return "post-form";
     }
 
     @PostMapping("/posts/new")

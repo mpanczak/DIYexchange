@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -38,6 +39,12 @@ public class PostService {
 
     public List<Post> retrivePosts() {
         return postRepository.findAll();
+    }
+
+    public List<Post> retrivePostsByUser() {
+        User user = userService.retrieveLoggedUser();
+
+        return postRepository.findPostsByUser(user);
     }
 
     public void addComment(String content, Long postId) {
