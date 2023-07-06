@@ -9,6 +9,7 @@ public class SettingsController {
 
     @GetMapping("/settings")
     public String home(Model model) {
+        model.addAttribute("isLoggedIn", true);
         return "settings";
     }
 }

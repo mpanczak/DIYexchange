@@ -6,6 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -43,7 +44,8 @@ public class PictureController {
     }
 
     @GetMapping("/upload")
-    public String showUploadForm() {
+    public String showUploadForm(Model model) {
+        model.addAttribute("isLoggedIn", true);
         return "upload";
     }
 

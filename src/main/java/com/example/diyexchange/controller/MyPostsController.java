@@ -21,6 +21,7 @@ public class MyPostsController {
     public String getHomeContent(Model model) {
         List<Post> posts = postService.retrivePostsByUser();
         model.addAttribute("posts", posts);
+        model.addAttribute("isLoggedIn", true);
         return "my-posts";
     }
 }

@@ -9,6 +9,7 @@ public class UserProfileController {
 
     @GetMapping("/profile")
     public String home(Model model) {
+        model.addAttribute("isLoggedIn", true);
         return "profile";
     }
 }

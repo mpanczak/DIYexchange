@@ -25,6 +25,7 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public String showPost(@PathVariable Long id, Model model) {
         model.addAttribute(postService.retrievePostById(id));
+        model.addAttribute("isLoggedIn", true);
         return "post";
     }
 
@@ -44,6 +45,7 @@ public class PostController {
     @GetMapping("/posts/new")
     public String showPostForm(Model model) {
         model.addAttribute("post", new Post());
+        model.addAttribute("isLoggedIn", true);
         return "post-form";
     }
 
