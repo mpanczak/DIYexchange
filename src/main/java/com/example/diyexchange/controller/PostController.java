@@ -1,9 +1,8 @@
 package com.example.diyexchange.controller;
 
 import com.example.diyexchange.entity.Post;
-import com.example.diyexchange.service.PictureService;
+import com.example.diyexchange.service.FollowService;
 import com.example.diyexchange.service.PostService;
-import com.example.diyexchange.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +12,11 @@ import org.springframework.web.multipart.MultipartFile;
 public class PostController {
 
     private final PostService postService;
-    private final UserService userService;
-    private final PictureService pictureService;
+    private final FollowService followService;
 
-    public PostController(PostService postService, UserService userService, PictureService pictureService) {
+    public PostController(PostService postService, FollowService followService) {
         this.postService = postService;
-        this.userService = userService;
-        this.pictureService = pictureService;
+        this.followService = followService;
     }
 
     @GetMapping("/posts/{id}")
@@ -29,6 +26,11 @@ public class PostController {
         return "post/post";
     }
 
+    @PostMapping("/posts/{id}/followAuthor")
+    public String followUser(@PathVariable Long id) {
+        followService.followUser(id);
+        return "redirect:/posts/{id}";
+    }
     @PostMapping("/posts/{id}/addComment")
     public String addComment(@RequestParam String commentText, @PathVariable Long id) {
         postService.addComment(commentText, id);

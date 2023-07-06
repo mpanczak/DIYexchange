@@ -8,10 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 @Transactional
@@ -22,6 +20,9 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public void addFollow(Long authorId, Long followerId) {
+        userRepository.addFollow(authorId, followerId);
+    }
     public User retrieveLoggedUser() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
