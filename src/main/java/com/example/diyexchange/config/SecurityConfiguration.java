@@ -20,8 +20,8 @@ public class SecurityConfiguration {
         );
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home", "/register", "about", "contact", "/pictures/*", "/*/*.{js}", "/*/*.{css}").permitAll()
-//                        .requestMatchers("/**", "/*/*.{js,css}").permitAll()
+                        .requestMatchers("/", "/home", "/register", "about", "contact", "/pictures/*",
+                                "/*/*.{js}", "/*/*.{css}").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
@@ -29,7 +29,6 @@ public class SecurityConfiguration {
                         .permitAll()
                 )
                 .logout((logout) -> logout.logoutUrl("/logout")
-                        .logoutSuccessUrl("/login?logout")
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
                         .permitAll());

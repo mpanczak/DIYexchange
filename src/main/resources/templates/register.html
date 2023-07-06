@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>User Registration</title>
+    <title>DIYexchange</title>
+    <link th:href="@{/css/login-form-bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-<h2>User Registration</h2>
 
-<form action="#" th:action="@{/register}" th:object="${user}" method="post">
-    <div>
-        <label>Email:</label>
-        <input type="email" th:field="*{email}" required />
-    </div>
+<div class="container">
+    <main class="form-signin w-25 m-auto">
+        <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+            <a th:href="@{/}">
+                <img class="mb-4" th:src="@{/img/logo.png}" alt="" width="72" height="57"/>
+            </a>
+            <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
 
-    <div>
-        <label>Login:</label>
-        <input type="text" th:field="*{login}" required />
-    </div>
+            <br><br>
+            <div th:if="${param.error}">
+                <p class="error">User with this email already exists!</p>
+            </div>
 
-    <div>
-        <label>Password:</label>
-        <input type="password" th:field="*{password}" required />
-    </div>
+            <div class="form-floating">
+                <input th:field="*{login}" required type="text" name="login" class="form-control" id="floatingInput" placeholder="username">
+                <label for="floatingInput">User name</label>
+            </div><br>
+            <div class="form-floating">
+                <input th:field="*{email}" required type="email" name="email" class="form-control" id="floatingInp" placeholder="name@example.com">
+                <label for="floatingInp">Email address</label>
+            </div><br>
+            <div class="form-floating">
+                <input th:field="*{password}" required type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div><br><br>
 
-    <div>
-        <input type="submit" value="Register" />
-    </div>
-</form>
+            <button class="btn btn-primary w-100 py-2" type="submit">Sign up</button>
+        </form>
+    </main>
+</div>
 
-<!-- Display error message if user already exists -->
-<p th:if="${param.error}">User with this email already exists!</p>
 </body>
 </html>
