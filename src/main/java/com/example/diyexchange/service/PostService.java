@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -21,14 +20,13 @@ public class PostService {
     private final PostRepository postRepository;
     private final CommentService commentService;
     private final UserService userService;
-    private final PictureService pictureService;
     private final NotificationService notificationService;
 
-    public PostService(PostRepository postRepository, CommentService commentService, UserService userService, PictureService pictureService, NotificationService notificationService) {
+    public PostService(PostRepository postRepository, CommentService commentService, UserService userService,
+                       NotificationService notificationService) {
         this.postRepository = postRepository;
         this.commentService = commentService;
         this.userService = userService;
-        this.pictureService = pictureService;
         this.notificationService = notificationService;
     }
 
@@ -71,10 +69,8 @@ public class PostService {
                 byte[] imageData = image.getBytes();
                 Picture picture = new Picture();
                 picture.setName(image.getOriginalFilename());
-//                picture.setType(image.getContentType());
                 picture.setImageData(imageData);
                 picture.setPost(post);
-                pictureService.savePicture(picture);
                 post.getPictures().add(picture);
             } catch (IOException e) {
                 e.printStackTrace();

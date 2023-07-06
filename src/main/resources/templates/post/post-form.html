@@ -2,20 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Add Post</title>
+    <link th:href="@{/css/header-bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
+
 <body>
-<h2>Add Post</h2>
-<form th:action="@{/posts/new}" th:object="${post}" method="post" enctype="multipart/form-data">
-    <label>Title:</label>
-    <input type="text" th:field="*{title}" />
+<!--header-->
+<div th:replace="~{fragments/header.html :: body}"></div>
 
-    <label>Content:</label>
-    <textarea th:field="*{content}" rows="5"></textarea>
+<div class="container">
+    <h2>Add Post</h2>
+    <main class="form-label w-100 m-auto">
+        <form th:action="@{/posts/new}" th:object="${post}" method="post" enctype="multipart/form-data">
+            <label>Title:</label>
+            <input type="text" th:field="*{title}" />
 
-    <label>Image:</label>
-    <input type="file" name="image" />
+            <label>Content:</label>
+            <textarea th:field="*{content}" rows="5"></textarea>
 
-    <input type="submit" value="Add Post" />
-</form>
+            <label>Image:</label>
+            <input type="file" name="image" />
+
+            <input type="submit" value="Add Post" />
+        </form>
+    </main>
+
+</div>
+
+
 </body>
 </html>

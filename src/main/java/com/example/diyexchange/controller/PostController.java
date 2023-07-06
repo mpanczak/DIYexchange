@@ -26,7 +26,7 @@ public class PostController {
     public String showPost(@PathVariable Long id, Model model) {
         model.addAttribute(postService.retrievePostById(id));
         model.addAttribute("isLoggedIn", true);
-        return "post";
+        return "post/post";
     }
 
     @PostMapping("/posts/{id}/addComment")
@@ -46,12 +46,12 @@ public class PostController {
     public String showPostForm(Model model) {
         model.addAttribute("post", new Post());
         model.addAttribute("isLoggedIn", true);
-        return "post-form";
+        return "post/post-form";
     }
 
     @PostMapping("/posts/new")
     public String addPost(@ModelAttribute("post") Post post, @RequestParam("image") MultipartFile image) {
         postService.savePost(post, image);
-        return "redirect:/";
+        return "redirect:/my-posts";
     }
 }
