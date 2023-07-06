@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.security.Principal;
+
 
 @Controller
 public class HomeController {
@@ -16,14 +18,22 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String home(Model model) {
+    public String home(Model model, Principal principal) {
         model.addAttribute("posts", homeService.getHomeContent());
+
+        boolean isLoggedIn = principal !=null;
+        model.addAttribute("isLoggedIn", isLoggedIn);
+
         return "home";
     }
 
     @GetMapping("/")
-    public String main(Model model) {
+    public String main(Model model, Principal principal) {
         model.addAttribute("posts", homeService.getHomeContent());
+
+        boolean isLoggedIn = principal !=null;
+        model.addAttribute("isLoggedIn", isLoggedIn);
+
         return "home";
     }
 

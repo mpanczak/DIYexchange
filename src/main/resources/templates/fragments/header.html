@@ -13,8 +13,9 @@
 
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <div class="logo">
-            <img th:src="@{/img/logo.png}" alt="Firm Logo" />
-            <!--                <img th:src="@{/pictures/11}" alt="Firm Logo" />-->
+            <a th:href="@{/}">
+                <img th:src="@{/img/logo.png}" alt="Firm Logo" />
+            </a>
             <h1>DIY exchange</h1>
         </div>
 
@@ -34,8 +35,16 @@
         </ul>
 
         <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2"><a th:href="@{/login}">Login</a></button>
-            <button type="button" class="btn btn-primary">Sign-up</button>
+
+            <div th:unless="${isLoggedIn}">
+                <a th:href="@{/login}"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
+                <a th:href="@{/sign-in}"><button type="button" class="btn btn-primary">Sign-up</button></a>
+            </div>
+            <div th:if="${isLoggedIn}">
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn btn-outline-primary me-2">Logout</button>
+                </form>
+            </div>
         </div>
     </header>
 </div>
