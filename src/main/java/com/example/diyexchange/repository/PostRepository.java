@@ -13,7 +13,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     List<Post> findPostsByUser(User user);
 
-    @Query(value = "SELECT * FROM posts ORDER BY timestamp LIMIT ?,?;", nativeQuery = true)
+    @Query(value = "SELECT * FROM posts ORDER BY timestamp DESC LIMIT ?,?;", nativeQuery = true)
     List<Post> findNewstPostsPagined (Integer offset, Integer limit);
 
     Integer countPostByIdNotNull();
