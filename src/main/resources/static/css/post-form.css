@@ -1,0 +1,30 @@
+h2 {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    width: 300px;
+}
+
+.form-label form {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.form-label label {
+    font-weight: bold;
+}
+
+.form-label input[type="text"],
+.form-label textarea {
+    width: 100%;
+    padding: 5px;
+}
+
+.form-label input[type="submit"] {
+    padding: 10px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

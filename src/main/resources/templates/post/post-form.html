@@ -4,13 +4,14 @@
     <title>Add Post</title>
     <link th:href="@{/css/header-bootstrap.css}" rel="stylesheet">
     <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/post-form.css}" rel="stylesheet">
 </head>
 
 <body>
 <!--header-->
 <div th:replace="~{fragments/header.html :: body}"></div>
 
-<div class="container">
+<div class="container w-50">
     <h2>Add Post</h2>
     <main class="form-label w-100 m-auto">
         <form th:action="@{/posts/new}" th:object="${post}" method="post" enctype="multipart/form-data">
