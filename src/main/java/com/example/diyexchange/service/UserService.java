@@ -36,6 +36,14 @@ public class UserService {
 //        return null;
     }
 
+    public List<String> fetchFollowerLogins(Long id) {
+        return userRepository.findFollowers(id);
+    }
+
+    public List<String> fetchFollowLogins(Long id) {
+        return userRepository.findFollows(id);
+    }
+
     public List<String> fetchEmails(Long id) {
         return userRepository.findFollowersEmails(id);
     }

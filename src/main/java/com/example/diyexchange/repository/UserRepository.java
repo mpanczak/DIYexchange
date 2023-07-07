@@ -19,6 +19,16 @@ public interface UserRepository extends JpaRepository<User, Long> {
             nativeQuery = true)
     List<String> findFollowersEmails(Long id);
 
+    @Query(value = "select login from users where id IN " +
+            "(select follower_id from user_follows join users u on u.id = user_follows.followed_id where followed_id = ?1)",
+            nativeQuery = true)
+    List<String> findFollowers(Long id);
+
+    @Query(value = "select login from users where id IN" +
+            " (select followed_id from user_follows join users u on u.id = user_follows.followed_id where follower_id = ?1)",
+            nativeQuery = true)
+    List<String> findFollows(Long id);
+
     @Modifying
     @Query(value = "INSERT INTO user_follows (followed_id, follower_id) VALUES (?, ?)", nativeQuery = true)
     void addFollow (Long authorId, Long followerId);

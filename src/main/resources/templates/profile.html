@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,11 +12,21 @@
 <div th:replace="~{fragments/header.html :: body}"></div>
 
 <div class="container w-50">
-    Followers:<br><br>
 
-    Followings:<br><br>
+    <p>Followers: <span th:text="${followers.size()}"></span></p>
+    <div th:each="follower : ${followers}">
 
-    Activity:
+        <span th:text="${follower}"></span>
+    </div>
+    <br><br>
+
+
+    <p>Followings: <span th:text="${follows.size()}"></span></p>
+    <div th:each="follow : ${follows}">
+
+        <span th:text="${follow}"></span>
+    </div>
+<!--    Activity:-->
 </div>
 
 </body>
