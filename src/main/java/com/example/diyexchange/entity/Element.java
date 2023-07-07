@@ -17,7 +17,7 @@ public class Element {
 
     private String name;
 
-    private String model;
+    private String type;
 
-    private Long amount;
+    private Long quantity;
 }

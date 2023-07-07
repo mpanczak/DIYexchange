@@ -12,7 +12,7 @@
 <div class="container w-50">
     <h1 th:text="${post.title}"></h1>
 
-    <h2>Pictures:</h2>
+<!--    <h2>Pictures:</h2>-->
     <div th:if="${post.pictures != null && post.pictures.size() > 0}">
         <div th:each="picture : ${post.pictures}">
             <img th:src="@{'/pictures/' + ${picture.id}}" alt="Post Image" />
@@ -20,6 +20,27 @@
     </div>
 
     <p th:text="${post.content}"></p>
+
+    <div th:if="${not #lists.isEmpty(post.elements)}">
+        <p>Used elements:</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="element : ${post.elements}">
+                <td th:text="${element.name}"></td>
+                <td th:text="${element.type}"></td>
+                <td th:text="${element.quantity}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 
     <!--Author-->
     <p th:text="${'Author: ' + post.user.login}" style="float: left"></p>
@@ -50,12 +71,12 @@
     <!-- like count -->
     <p>Like count: <span th:text="${post.likedByUsers.size()}"></span></p>
 
-    <h2>Liked By:</h2>
-    <div th:if="${post.likedByUsers != null && post.likedByUsers.size() > 0}">
-        <ul>
-            <li th:each="user : ${post.likedByUsers}" th:text="${user.login}"></li>
-        </ul>
-    </div>
+<!--    <h2>Liked By:</h2>-->
+<!--    <div th:if="${post.likedByUsers != null && post.likedByUsers.size() > 0}">-->
+<!--        <ul>-->
+<!--            <li th:each="user : ${post.likedByUsers}" th:text="${user.login}"></li>-->
+<!--        </ul>-->
+<!--    </div>-->
 
     <h2>Comments:</h2>
     <div th:if="${post.comments != null && post.comments.size() > 0}">

@@ -33,4 +33,8 @@ INSERT INTO user_follows (followed_id, follower_id) VALUES (2, 1), (2, 3), (2, 5
 INSERT INTO user_follows (followed_id, follower_id) VALUES (5, 4), (5, 1), (5, 3);
 
 
-
+INSERT INTO elements (id, post_id, name, type, quantity) VALUES (1, 1, 'arduino', 'uno', 1);
+INSERT INTO elements (id, post_id, name, type, quantity)  VALUES (2, 1, 'connecting cables', null, 15);
+INSERT INTO elements (id, post_id, name, type, quantity)  VALUES (3, 1, 'transistor', 'BC 337', 3);
+INSERT INTO elements (id, post_id, name, type, quantity)  VALUES (4, 1, 'resistor 20 Ohm', null, 2);
+INSERT INTO elements (id, post_id, name, type, quantity)  VALUES (5, 1, 'contact board', null, 2);
