@@ -1,0 +1,34 @@
+h2 {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.comment {
+    margin-bottom: 20px;
+}
+
+.comment p {
+    margin: 0;
+}
+
+.comment p span {
+    font-weight: bold;
+}
+
+.comment p:nth-child(2) {
+    margin-top: 5px;
+}
+
+.comment p:nth-child(3) {
+    color: gray;
+    font-size: 0.8em;
+}
+
+#comment-text {
+    font-size: 1.2em;
+}
+
+#comment-auth {
+    font-size: 0.8em;
+}
