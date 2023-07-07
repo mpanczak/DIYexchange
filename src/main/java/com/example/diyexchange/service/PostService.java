@@ -40,9 +40,23 @@ public class PostService {
         return postRepository.findAll();
     }
 
+    public List<Post> retrivePostsPagined(Integer limit, Integer offset) {
+        return postRepository.findNewstPostsPagined(offset, limit);
+    }
+
+    public Integer retriveNumberOfPages(Integer limit) {
+        Integer numberOfPosts = postRepository.countPostByIdNotNull();
+        int numberOfPages;
+        if (numberOfPosts % limit == 0) {
+            numberOfPages = numberOfPosts / limit;
+        } else {
+            numberOfPages = (numberOfPosts / limit) +1;
+        }
+        return numberOfPages;
+    }
+
     public List<Post> retrivePostsByUser() {
         User user = userService.retrieveLoggedUser();
-
         return postRepository.findPostsByUser(user);
     }
 

@@ -1,0 +1,29 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a, .pagination span {
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border: none;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pagination a:hover {
+    background-color: #ccc;
+}
+
+.pagination span {
+    background-color: #ddd;
+    cursor: default;
+}
+
+.pagination .disabled {
+    pointer-events: none;
+    background-color: #ddd;
+    color: #888;
+}

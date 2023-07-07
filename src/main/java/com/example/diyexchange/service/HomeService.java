@@ -19,11 +19,13 @@ public class HomeService {
         this.pictureService = pictureService;
     }
 
-    public List<Post> getHomeContent() {
-
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        List<Post> posts = postService.retrivePosts();
+    public List<Post> getHomeContent(Integer pageId, Integer size) {
+        Integer offset = (pageId -1) * size;
+        List<Post> posts = postService.retrivePostsPagined(size, offset);
         return posts;
+    }
+
+    public Integer getTotalPages(Integer limit) {
+        return postService.retriveNumberOfPages(limit);
     }
 }

@@ -3,6 +3,7 @@ package com.example.diyexchange.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -37,6 +38,9 @@ public class Post {
 
     @OneToMany(mappedBy = "post")
     private List<Element> elements;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Timestamp timestamp;
 
     public List<Picture> getPictures() {
         if (pictures == null) {
