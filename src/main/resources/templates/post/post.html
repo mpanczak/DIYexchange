@@ -17,7 +17,7 @@
         <div th:each="picture : ${post.pictures}">
             <img th:src="@{'/pictures/' + ${picture.id}}" alt="Post Image" />
         </div>
-    </div>
+    </div><br>
 
     <p th:text="${post.content}"></p>
 
@@ -43,9 +43,9 @@
 
 
     <!--Author-->
-    <p th:text="${'Author: ' + post.user.login}" style="float: left"></p>
+    <p th:text="${'Author: ' + post.user.login}"></p>
     <!-- Follow button -->
-    <form th:action="@{'/posts/' + ${post.id} + '/followAuthor'}" method="post" style="float: left">
+    <form class="btn-action" th:action="@{'/posts/' + ${post.id} + '/followAuthor'}" method="post">
         <!--    <button type="submit">Follow</button>-->
         <button id="follow-btn" type="submit" class="btn btn-outline-primary">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
@@ -54,12 +54,12 @@
             </svg>
             Follow
         </button>
-    </form>
+    </form><br>
 
 
 
     <!-- Like button -->
-    <form th:action="@{'/posts/' + ${post.id} + '/like'}" method="post">
+    <form class="btn-action" th:action="@{'/posts/' + ${post.id} + '/like'}" method="post">
         <!--    <button type="submit">Like</button>-->
         <button id="like-btn" type="submit" class="btn btn-primary">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
