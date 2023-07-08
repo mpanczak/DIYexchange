@@ -21,7 +21,9 @@ public class UserService {
     }
 
     public void addFollow(Long authorId, Long followerId) {
-        userRepository.addFollow(authorId, followerId);
+        if (userRepository.selectUniqueFollow(authorId, followerId) == 0) {
+            userRepository.addFollow(authorId, followerId);
+        }
     }
     public User retrieveLoggedUser() {
 

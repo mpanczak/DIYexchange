@@ -32,4 +32,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
     @Query(value = "INSERT INTO user_follows (followed_id, follower_id) VALUES (?, ?)", nativeQuery = true)
     void addFollow (Long authorId, Long followerId);
+
+    @Query(value = "SELECT COUNT(followed_id) FROM user_follows WHERE followed_id=? AND follower_id=?", nativeQuery = true)
+    Integer selectUniqueFollow(Long authorId, Long followerId);
 }
