@@ -73,3 +73,9 @@
     color: gray;
     font-size: 0.8em;
 }
+
+img {
+    max-width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+}
