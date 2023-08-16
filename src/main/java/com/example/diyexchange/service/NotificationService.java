@@ -3,6 +3,7 @@ package com.example.diyexchange.service;
 import com.example.diyexchange.entity.Post;
 import com.example.diyexchange.entity.User;
 import jakarta.mail.MessagingException;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class NotificationService {
         return userService.fetchEmails(id);
     }
 
+    @Async
     public void sendNotifications(Post post) {
 
         String postTitle = post.getTitle();

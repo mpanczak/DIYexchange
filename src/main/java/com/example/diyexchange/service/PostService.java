@@ -98,8 +98,6 @@ public class PostService {
         post.setUser(userService.retrieveLoggedUser());
         postRepository.save(post);
 
-        CompletableFuture.runAsync(() -> {
-            notificationService.sendNotifications(post);
-        });
+        notificationService.sendNotifications(post);
     }
 }
