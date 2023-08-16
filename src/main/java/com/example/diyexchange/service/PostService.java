@@ -94,7 +94,7 @@ public class PostService {
                 e.printStackTrace();
             }
         }
-        post.setTimestamp(Timestamp.valueOf(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))));
+        post.setTimestamp(Timestamp.valueOf(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))));
         post.setUser(userService.retrieveLoggedUser());
         postRepository.save(post);
 
