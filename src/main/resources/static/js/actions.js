@@ -1,15 +1,17 @@
-function showAlert() {
-    alert("The button was clicked!");
-}
+const followButton = document.getElementById('follow-btn')
+const likeButton = document.getElementById('like-btn')
+const commentButton = document.getElementById('comment-btn')
 
-function followUser() {
-    alert("The button was clicked!");
-}
+ function followUser() {
+     followButton.addEventListener('submit', function (evt){
+         evt.preventDefault();
+         alert("The button was clicked!");
+     })
+ }
 
 function likePost() {
     alert("The button was clicked!");
 }
 
 function comment() {
-    alert("The button was clicked!");
 }
