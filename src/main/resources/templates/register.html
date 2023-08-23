@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>DIYexchange</title>
-    <link th:href="@{/css/login-form-bootstrap.css}" rel="stylesheet">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
-</head>
-<body>
+<!--header-->
+<div th:replace="~{fragments/header.html :: head}"></div>
 
+<body>
 <div class="container">
     <main class="form-signin w-25 m-auto">
         <form action="#" th:action="@{/register}" th:object="${user}" method="post">
